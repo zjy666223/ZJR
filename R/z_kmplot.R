@@ -1,0 +1,89 @@
+# file: R/z_km.R
+#' z_km: Note-only placeholder for Kaplan–Meier plotting
+#'
+#' @description
+#' 占位函数，仅用于在帮助文档中记录你常用的 KM 绘图流程（merge 子集 → survfit → ggsurvplot）。
+#' 函数本身**不执行任何分析**，仅返回 `NULL`。请直接参考下方备注/示例编写你的脚本。
+#'
+#' @details
+#' \strong{备注（可复制到你的分析脚本中）：}
+#'
+#' \preformatted{
+#' library(survival)
+#'library(survminer)
+#'names(lung)
+#'fit <- survfit(Surv(time, status) ~ sex, data = lung)
+#'ggsurvplot(fit,
+#'           pval = TRUE, 
+#'           conf.int = TRUE,#是否显示置信区间
+#'           risk.table = TRUE, # 添加风险表
+#'           risk.table.col = "strata", # 根据分层更改风险表颜色
+#'           linetype = "strata", # 根据分层更改线型
+#'           surv.median.line = "hv", # 同时显示垂直和水平参考线
+#'           ggtheme = theme_bw(), # 更改ggplot2的主题
+#'           xlim = NULL, #控制x坐标轴范围 xlim = c(0,100)
+#'           fun = "pct", #曲线的类型
+#'           #break.x.by=2, #x轴的刻度
+#'           palette = c("#E7B800", "#2E9FDF"),#定义颜色 要和分组的数量一致
+#')
+#' km_data = merge(exposure_data, outcome_data, by = "eid")
+#' names(km_data)
+#' km_data = subset(km_data, M10_time >= 0)  # 去掉进入队列前就发病的
+#'
+#' fit <- survfit(Surv(M10_time, M10_status) ~ score_pattern, data = km_data)
+#'
+#' ggsurvplot(
+#'   fit,
+#'   pval = TRUE,
+#'   conf.int = TRUE,              # 是否显示置信区间
+#'   risk.table = TRUE,            # 添加风险表
+#'   risk.table.col = "strata",    # 根据分层更改风险表颜色
+#'   linetype = "strata",          # 根据分层更改线型
+#'   surv.median.line = "hv",      # 同时显示垂直和水平参考线
+#'   ggtheme = theme_classic(),    # 更改 ggplot2 的主题
+#'   xlim = NULL,                  # 控制 x 坐标轴范围
+#'   ylim = c(0, 0.05),            # 控制 y 坐标轴范围
+#'   fun = "cumhaz",               # 曲线的类型
+#'   break.x.by = 2,               # x 轴刻度
+#'   # palette = c("#E7B800", "#2E9FDF"), # 自定义颜色
+#'   palette = "hue",
+#'   xlab = "Follow up time (years)",     # x 轴标签
+#'   ylab = "Cumulative incidence of xx(%)", # y 轴标签
+#'   risk.table.y.text = FALSE      # 隐藏风险表 y 轴刻度
+#' )
+#' }
+#'
+#' \emph{提示：} 若在文档示例中真的要运行上面的代码，请确保已 `library(survival); library(survminer)`，
+#' 且对象 `exposure_data/outcome_data` 已存在并含有 `eid`, `M10_time`, `M10_status`, `score_pattern` 等列。
+#'
+#' @return `NULL`（仅用于文档占位）。
+#'
+#' @examples
+#' \dontrun{
+#' # 需要：library(survival); library(survminer)
+#' # 示例思路与 @details 一致，这里放一份可运行的模板（自行替换为你的数据）：
+#' km_data = merge(exposure_data, outcome_data, by = "eid")
+#' km_data = subset(km_data, M10_time >= 0)
+#'
+#' fit <- survival::survfit(survival::Surv(M10_time, M10_status) ~ score_pattern, data = km_data)
+#' survminer::ggsurvplot(
+#'   fit,
+#'   pval = TRUE, conf.int = TRUE,
+#'   risk.table = TRUE, risk.table.col = "strata",
+#'   linetype = "strata", surv.median.line = "hv",
+#'   ggtheme = ggplot2::theme_classic(),
+#'   xlim = NULL, ylim = c(0, 0.05),
+#'   fun = "cumhaz", break.x.by = 2,
+#'   palette = "hue",
+#'   xlab = "Follow up time (years)",
+#'   ylab = "Cumulative incidence of xx(%)",
+#'   risk.table.y.text = FALSE
+#' )
+#' }
+#'
+#' @seealso \code{\link[survminer]{ggsurvplot}}, \code{\link[survival]{survfit}}
+#' @export
+z_km <- function(...) {
+  # why: 此函数仅用于展示帮助文档中的备注与示例，不执行任何逻辑
+  invisible(NULL)
+}
