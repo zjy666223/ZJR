@@ -12,9 +12,18 @@ ZJR streamlines the entire research pipeline — from data cleaning to publicati
 
 You can install the development version of ZJR like so:
 
-``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
-```
+# Install devtools if you haven’t already
+install.packages("devtools")
+
+# Install the development version of ZJR from GitHub
+devtools::install_github("zjy6666223/ZJR")
+
+# Alternatively, you can use remotes
+# remotes::install_github("zjy6666223/ZJR")
+
+# Load the package
+library(ZJR)
+
 
 ## Example
 
